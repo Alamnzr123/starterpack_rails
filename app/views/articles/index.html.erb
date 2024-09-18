@@ -1,0 +1,18 @@
+<h1>Wallet</h1>
+
+Our Balance has $ <%= number_with_precision(
+   Article.body.sum(:wallet), :precision => 2 
+) %> transactions
+
+
+<ul>
+<% @articles.each do |article| %>
+    <% unless article.archived? %>
+        <li>
+            <%= link_to article.title, article %>
+        </li>
+        <% end %>        
+    <% end %>
+</ul>
+
+Add new Transaction : <%= link_to "New Article", new_article_path %>
